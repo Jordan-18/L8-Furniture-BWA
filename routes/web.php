@@ -23,6 +23,6 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
     Route::get('/', [DashboardController::class, 'index'])->name('index');
 
     Route::middleware(['admin'])->group(function(){
-        
+            
     });
 });

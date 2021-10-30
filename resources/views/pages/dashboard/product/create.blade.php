@@ -37,7 +37,7 @@
                         <div class="w-full px-3">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Description</label>
                             <textarea name="deskripsi" class="block w-full bg-gray-200 text-gray-700 border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" >
-                                {!! old('diskripsi') !!}
+                                {!! old('deskripsi') !!}
                             </textarea>
                         </div>
                     </div>

@@ -121,8 +121,10 @@ class ProductGalleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(ProdukGallery $gallery)
     {
-        //
+        $gallery->delete();
+
+        return redirect()->route('dashboard.product.gallery.index', $gallery->product_id);
     }
 }

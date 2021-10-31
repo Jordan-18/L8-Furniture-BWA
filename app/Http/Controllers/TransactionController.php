@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TransactionRequest;
 use App\Models\Transaction;
 use App\Models\TransactionItem;
 use Illuminate\Http\Request;
@@ -91,9 +92,11 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Transaction $transaction)
     {
-        //
+        return view('pages.dashboard.transaction.edit',[
+            'item' => $transaction
+        ]);
     }
 
     /**
@@ -103,9 +106,13 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TransactionRequest $request, Transaction $transaction)
     {
-        //
+        $data = $request->all();
+
+        $transaction->update($data);
+
+        return redirect()->route('dashboard.transaction.index');
     }
 
     /**

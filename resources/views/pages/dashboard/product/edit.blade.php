@@ -52,7 +52,7 @@
                     {{-- Button --}}
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
-                            <button type="submit" class="bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 rounded shadow-lg">
+                            <button type="submit" class="btn btn-success rounded shadow">
                                 Update Product
                             </button>
                         </div>

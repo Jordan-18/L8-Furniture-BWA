@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Product') }}
+            Product &raquo; {{ $product->name }} &raquo; Gallery
         </h2>
     </x-slot>
 
@@ -14,8 +14,8 @@
                 },
                 columns: [
                     {data: 'id', name:'id', width: '5%'},
-                    {data: 'name', name:'name'},
-                    {data: 'price', name:'price'},
+                    {data: 'url', name:'url'},
+                    {data: 'is_featured', name:'is_featured'},
                     {
                         data: 'action', 
                         name:'action', 
@@ -31,8 +31,8 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="mb-10">
-                <a href="{{ route('dashboard.product.create')}}" class="btn btn-success rounded shadow">
-                    + Create Product
+                <a href="{{ route('dashboard.product.gallery.create', $product->id)}}" class="btn btn-success rounded shadow">
+                    + Upload Photos
                 </a>
             </div>
             <div class="shadow overflow-hidden sm-rounded-md mt-3">
@@ -40,8 +40,8 @@
                     <table id="crudTable">
                         <thead>
                             <th>ID</th>
-                            <th>Nama</th>
-                            <th>Harga</th>
+                            <th>Photo</th>
+                            <th>Featured</th>
                             <th>Aksi</th>
                         </thead>
                         <tbody></tbody>

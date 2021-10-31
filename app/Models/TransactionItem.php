@@ -13,7 +13,7 @@ class TransactionItem extends Model
         'users_id', 'products_id', 'transactions_id'
     ];
 
-    public function produk(){
+    public function product(){
         return $this->hasOne(Product::class,'id','products_id');
     }
 }

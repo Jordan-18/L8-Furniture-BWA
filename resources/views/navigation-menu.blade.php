@@ -17,10 +17,15 @@
                     </x-jet-nav-link>
 
                     @if (Auth::user()->roles == 'ADMIN')
+                    {{-- nav- product --}}
                     <x-jet-nav-link href="{{ route('dashboard.product.index') }}" :active="request()->routeIs('dashboard.product.index')">
                         {{ __('Products') }}
                     </x-jet-nav-link>
-                        
+                    {{-- nav transaction --}}
+                    <x-jet-nav-link href="{{ route('dashboard.transaction.index') }}" :active="request()->routeIs('dashboard.transaction.index')">
+                        {{ __('Transaction') }}
+                    </x-jet-nav-link>
+                    
                     @endif
                 </div>
             </div>
@@ -108,9 +113,14 @@
                             </x-jet-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                                <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
-                                    {{ __('API Tokens') }}
-                                </x-jet-dropdown-link>
+                            {{-- nav- product --}}
+                            <x-jet-nav-link href="{{ route('dashboard.product.index') }}" :active="request()->routeIs('dashboard.product.index')">
+                                {{ __('Products') }}
+                            </x-jet-nav-link>
+                            {{-- nav transaction --}}
+                            <x-jet-nav-link href="{{ route('dashboard.transaction.index') }}" :active="request()->routeIs('dashboard.transaction.index')">
+                                {{ __('Transaction') }}
+                            </x-jet-nav-link>
                             @endif
 
                             <div class="border-t border-gray-100"></div>

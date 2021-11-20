@@ -59,8 +59,10 @@
                 <h2 class="text-5xl font-semibold">{{ $product->name }}</h2>
                 <p class="text-xl">IDR {{ number_format($product->price)}}</p>
       
-                <a
-                  href="cart.html"
+                <form action="{{ route('cart-add', $product->id)}}" method="POST">
+                  @csrf
+                  <button
+                  type="submit"    
                   class="transition-all duration-200 bg-pink-400 text-black focus:bg-black focus:text-pink-400 rounded-full px-8 py-3 mt-4 inline-flex"
                   ><svg
                     class="fill-current mr-3"
@@ -84,8 +86,9 @@
                       d="M25.6499 4.508C25.407 4.22245 25.0472 4.05871 24.6626 4.05871H4.82655L4.42595 2.19571C4.34232 1.80709 4.06563 1.48078 3.68565 1.32272L0.890528 0.160438C0.567841 0.0261566 0.192825 0.168008 0.0528584 0.477043C-0.0872597 0.786176 0.0608116 1.14549 0.383347 1.27957L3.17852 2.4419L6.2598 16.7708C6.38117 17.3351 6.90578 17.7446 7.50723 17.7446H22.7635C23.1152 17.7446 23.4003 17.4715 23.4003 17.1346C23.4003 16.7976 23.1152 16.5245 22.7635 16.5245H7.50728L7.13247 14.7815H22.8814C23.4828 14.7815 24.0075 14.3719 24.1288 13.8076L25.9101 5.52488C25.9876 5.16421 25.8928 4.79349 25.6499 4.508ZM22.8814 13.5615H6.87012L5.08895 5.27879L24.6626 5.27884L22.8814 13.5615Z"
                     />
                   </svg>
-                  Add to Cart</a
-                >
+                  Add to Cart
+                </button>
+                </form>
                 <hr class="my-8" />
       
                 <h6 class="text-xl font-semibold mb-4">About the product</h6>
@@ -106,6 +109,7 @@
                 </h3>
               </div>
               <div class="flex overflow-x-auto mb-4 -mx-3">
+                {{-- awal product random --}}
                 @foreach ($recomendations as $recomendation)
                   <div class="px-3 flex-none" style="width: 320px">
                     <div class="rounded-xl p-4 pb-8 relative bg-white">
@@ -124,6 +128,7 @@
                     </div>
                   </div>
                 @endforeach
+              {{-- end product random --}}
               </div>
             </div>
           </section>
